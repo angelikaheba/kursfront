@@ -1,0 +1,29 @@
+/* selektor {
+    właściwość: wartość;
+} */
+
+body {
+    background-color: aqua;
+}
+.messageForm{
+    border: 2px dashed red;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    border:5px solid yellow;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px;
+}
+.header2{
+    margin-left: 700px;
+}
+.article1{
+    border: 50px dashed red;
+    justify-content: center;
+}
+.div1{
+    margin-left: 750px;
+}
