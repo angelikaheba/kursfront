@@ -3,27 +3,43 @@
 } */
 
 body {
-    background-color: aqua;
+    background-color: rgb(125, 125, 138);
 }
 .messageForm{
-    border: 2px dashed red;
     display: flex;
     flex-direction: column;
 }
 header{
-    border:5px solid yellow;
     display:flex;
     justify-content: space-between;
     align-items: center;
     padding:10px;
 }
-.header2{
-    margin-left: 700px;
+
+
+
+    
+
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
 }
-.article1{
-    border: 50px dashed red;
-    justify-content: center;
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    text-align: center;
 }
-.div1{
-    margin-left: 750px;
+@media (min-width:768px){
+    .info {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
 }
