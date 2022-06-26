@@ -1,0 +1,15 @@
+th{
+    text-align: left;
+    text-transform: uppercase;
+    border: 2px solid black;
+    text-align: center;
+    padding: 1%;
+}
+table{
+    border: 2px solid black;
+    width: 600px;
+    
+}
+td{
+    text-align: center;
+}
