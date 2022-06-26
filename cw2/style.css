@@ -1,6 +1,7 @@
 body{
 background-color: red;
 margin: 0;
+/* usuwamy domyślny margines body */
 }
 
 footer,
@@ -8,6 +9,7 @@ footer,
 border: 3px solid black;
 text-align: center;
 padding: .5rem;
+/* przestrzeń między elementem a borderem */
 }
 
 header{
@@ -16,29 +18,42 @@ header{
 }
 h1{
     margin: 0;
+    /* usuwamy domyślny margines body */
 }
 footer{
     position: fixed;
+    /* przyklej do ekranu */
     bottom: 0;
     width: 100%;
     background-color: red;
 }
+
+/* selektor gwiazdki odnosi się do wszystkich elementów na stronie */
 *{
+    /* wysokość i szer. elementów odnosi się do ich wielkości +border + padding */
     box-sizing: border-box;
 }
 
 section{
     display: flex;
     flex-direction: column;
+    /* użyj calc, jeśli chcesz wykonać działanie na różnych jednostkach */
     margin-bottom: calc( 3rem + 10px );
 }
 
 article{
     border: 5px solid black;
     aspect-ratio: 1/1;
+    /* ustawiamy stosunek wysokości do szerokości */
     /* margin: .5rem .5rem 5rem; */
     margin: 1rem;
     margin-bottom: 0;
+    background-size: cover;
+    /* cover przykrywa obrazkiem cały element - odwrotność to contain */
+    background-position: center;
+    /* ustawia obrazek na środku */
+    position: relative;
+    /* zmieniamy posiotion static, aby elementy dzieci w pozycji absolutnej dostosowały się do article */
 
 }
 
@@ -46,11 +61,57 @@ article{
     
     section{
         flex-direction: row;
+        /* elementy jeden obok drugiego */
         flex-wrap: wrap;
+        /* pozwól elementom na łamanie linii (enter) */
         justify-content: center;
     }
     
     article{
        width: 35%;
     }
+}
+
+/* n-te dziecko - w nawiasie wpisz numer elementu */
+article:nth-child(1){
+    background-image: url(https://files.worldwildlife.org/wwfcmsprod/images/Lion_WWFGIFTS_cover_2020/magazine_small/2wafu1bmcz_b21fc8e6.jpeg)
+}
+
+article:nth-child(2){
+    background-image: url(https://zwierzaki.pl/wp-content/uploads/2021/12/zebra-1200x675.jpg)
+}
+
+article:nth-child(3){
+    background-image: url(https://smoglab.pl/wp-content/uploads/2021/03/Juz-wszystkie-gatunki-sloni-na-planecie-sa-zagrozone-wyginieciem.-Jeden-krytycznie-750x375.jpg.webp)
+}
+
+article:nth-child(4){
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Giraffe_in_Selous_Game_Reserve_%289%29_%2829049301195%29%2C_crop.jpg/800px-Giraffe_in_Selous_Game_Reserve_%289%29_%2829049301195%29%2C_crop.jpg)
+}
+
+/* before, after - pseudo element - element, który nie ma odpowiednika w htmlu, jest "pasożytem" elementu */
+article::after{
+    content: " KLIKNIJ, ŻEBY ZOBACZYĆ ZWIERZĘ ";
+    /* nieodłączna część pseudoelementów, musi być choćby pusta */
+    background-color: blue;
+    position: absolute;
+    /* uzależnij element od najbliższego przodka niebędącego w pozycji statycznej */
+    /* wyświetl się w wielkości rodzica */
+    width: 100%;
+    height: 100%;
+    /* w lewym górnym rogu */
+    left:0;
+    top: 0;
+    /* wycentruj tekst */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* dodaj płynność przejścia elementu */
+    transition: .5s;
+}
+
+/* po kliknięciu na element (active) */
+article:active::after{
+    /* zmień widoczność na 0 (0-niewidoczny, 1-całkowice widoczny) */
+    opacity:0;
 }
